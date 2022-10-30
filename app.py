@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from mongopass import mongopass
 
 app = Flask(__name__)
-app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
+app.secret_key = b'\xcc^\x91\xeb\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 
 # Database
 client = MongoClient(mongopass)
@@ -28,10 +28,20 @@ def login_required(f):
   
   return wrap
 
+def logged_in(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return redirect('/dashboard')
+    else:
+      return f(*args, **kwargs)
+  return wrap
+
 # Routes
 from user import routes
 
 @app.route('/')
+@logged_in
 def home():
   return render_template('home.html')
 
