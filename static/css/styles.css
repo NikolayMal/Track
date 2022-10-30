@@ -5,18 +5,19 @@
 /* Setup */
 :root {
   --black: #000000;
-  --almost-black: #263238;
+  --almost-black: #242424;
   --white: #ffffff;
   --almost-white: #FBFBFB;
   --grey-light: #CFD8DC;
   --grey: #B0BEC5;
   --grey-medium: #78909C;
   --grey-dark: #455A64;
-  --primary: #1E88E5;
-  --primary-dark: #1976D2;
+  --primary: #3ca0f8;
+  --primary-dark: #1a1a1a;
   --secondary: #CFD8DC;
   --secondary-dark: #B0BEC5;
   --red: #EF4836;
+  --green: #019908;
 }
 
 * {
@@ -29,8 +30,8 @@ body {
   font-family: sans-serif;
   font-size: 18px;
   line-height: 28px;
-  color: var(--black);
-  background: var(--grey-light);
+  color: var(--almost-white);
+  background: var(--primary-dark);
 }
 
 /* Typography */
@@ -38,18 +39,24 @@ body {
   text-align: center;
 }
 
+.bottom {
+  position:absolute;                  /* added */
+  bottom:0;                           /* added */
+  left:0;   
+}
+
 h1 {
   margin: 0.5em 0 1em;
   font-size: 26px;
   line-height: 1.2;
-  color: var(--almost-black);
+  color: var(--almost-white);
 }
 
 h2 {
   margin: 0.5em 0 1em;
   font-size: 20px;
   line-height: 1.2;
-  color: var(--grey-dark);
+  color: var(--almost-white);
 }
 
 p {
@@ -71,7 +78,7 @@ p {
   width: 460px;
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
   border-radius: 5px;
-  background: var(--white);
+  background: var(--almost-black);
 }
 
 @media only screen and (max-width: 520px) {
@@ -88,91 +95,108 @@ p {
   }
 }
 
-/* Forms */
 form {
-  transition: opacity .15s ease;
+  width: 320px;
+  margin: 45px auto;
+}
+form h1 {
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: var(--primary);
+}
+form h5 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #c6c6c6;
+}
+form hr.sep {
+  background: var(--primary);
+  box-shadow: none;
+  border: none;
+  height: 2px;
+  width: 25%;
+  margin: 0px auto 45px auto;
 }
 
-form.loading {
-  pointer-events: none;
-  opacity: 0.75;
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+input {
+  background: none;
+  color: var(--grey-dark);
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 320px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--almost-white);
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus ~ label, input:valid ~ label {
+  top: -14px;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+input:focus ~ .bar:before {
+  width: 320px;
+}
+
+input[type=password] {
+  letter-spacing: 0.3em;
+}
+
+input:valid {
+  color: var(--white)
 }
 
 label {
-  margin: 0 0 2px;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 1px;
-  color: var(--grey-medium);
-  display: block;
-}
-
-.field {
-  margin: 0 0 24px;
-  padding: 11px 16px 9px;
-  width: 100%;
+  color: #c6c6c6;
   font-size: 16px;
-  line-height: 26px;
-  color: var(--almost-black);
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
   display: block;
-  background: var(--almost-white);
-  transition: border-color .15s ease;
+  width: 320px;
 }
 
-.field:focus {
-  border-color: var(--grey-medium);
-  outline: none;
-}
-
-.error {
-  margin: 0;
-  font-size: 16px;
-  line-height: 26px;
-  text-align: center;
-  color: var(--red);
-}
-
-.error--hidden {
-  display: none;
-}
-
-/* Buttons */
-.btn {
-  margin: 0 0 24px;
-  padding: 11px 30px 10px;
-  font-size: 14px;
-  line-height: 24px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  display: inline-block;
+.bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
   background: var(--primary);
-  transition: color .15s ease, background-color .15s ease;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--primary);
+  outline: none;
+  transition: 1s ease-in-out;
 }
 
 .btn:hover {
-  background: var(--primary-dark);
-}
-
-.btn--secondary {
-  color: var(--almost-black);
-  background: var(--secondary);
-}
-
-.btn--secondary:hover {
-  background: var(--secondary-dark);
-}
-
-input[type=submit] {
-  margin: 34px auto 24px;
-  display: block;
+  transition: 1s ease-in-out;
+  background: var(--primary);
 }

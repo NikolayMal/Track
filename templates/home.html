@@ -1,50 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="card-wrapper">
 
-    <div class="card">
 
-      <h1 class="center">Create an Account</h1>
+<div class="card-wrapper">
+  <div class="card">
 
+    <div class="wrapper">
       <form name="signup_form">
+        <h2 class="center">Create an Account</h2>
+        <hr class="sep" />
 
-        <label for="name">Name</label>
-        <input type="text" name="name" class="field" required>
+        <div class="group">
+          <input type="text" name="name" required /><span class="highlight"></span><span class="bar"></span>
+          <label for="name">Name</label>
+        </div>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" class="field" required>
+        <div class="group">
+          <input type="email" name="email" required /><span class="highlight"></span><span class="bar"></span>
+          <label for="email">Email</label>
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" class="field" required>
+        <div class="group">
+          <input type="password" name="password" required /><span class="highlight"></span><span class="bar"></span>
+          <label for="password">Password</label>
+        </div>
 
         <p class="error error--hidden"></p>
 
-        <input type="submit" value="Sign Up" class="btn">
-      
+        <input type="submit" value="Sign Up" class="btn" />
       </form>
-      
     </div>
+  </div>
 
-    <div class="card">
-
-      <h1 class="center">Log In</h1>
-
+  <div class="card">
+    <div class="wrapper">
       <form name="login_form">
+        <h2 class="center">Log In</h2>
+        <hr class="sep" />
 
-        <label for="email">Email</label>
-        <input type="email" name="email" class="field" required>
+        <div class="group">
+          <input class="email" name="email" type="email" required="required" /><span class="highlight"></span><span
+            class="bar"></span>
+          <label for="email">Email</label>
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" class="field" required>
+        <div class="group">
+          <input class="password" name="password" type="password" required="required" /><span
+            class="highlight"></span><span class="bar"></span>
+          <label for="password">Password</label>
+        </div>
 
+        </br>
         <p class="error error--hidden"></p>
+        <p style="margin-bottom: 57px;"> </p>
 
         <input type="submit" value="Log In" class="btn">
-      
+
       </form>
-      
     </div>
-  
   </div>
+</div>
 {% endblock %}
