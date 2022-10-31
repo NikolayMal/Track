@@ -203,6 +203,8 @@ label {
   background: var(--primary);
 }
 
+/* Snowflakes */
+
 #snowflakeContainer {
   position: absolute;
   left: 0px;
@@ -220,4 +222,46 @@ label {
   width: 20px;
   height: 3px;
   z-index: -1;
+}
+
+/* Nav Bar  */
+
+.topnav {
+  overflow: hidden;
+  background-color: var(--almost-black);
+  color: var(--primary);
+}
+
+.topnav h3 {
+  display: inline-block;
+  text-align: center;
+  padding-left: 15px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav-center {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right { 
+  float: right;
+  padding-right: 15px;
+}
+
+#topnav-signout {
+  font-size: 50px;
+  color: var(--primary);
+  bottom: 0%;
+  margin-top: 15px;
+  border: 0;
+}
+
+.topnav a:hover {
+  background-color: var(--primary);
+  color: var(--almost-white);
 }

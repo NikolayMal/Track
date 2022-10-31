@@ -1,6 +1,30 @@
 {% extends "base.html" %}
 
+{% block nav %}
+  <div class="topnav">
+   
+    <h3>Hello, {{ session['user']['name'] }}!</h3>
+
+    <div class="topnav-center">
+      <p id="date">SSSS</p> 
+      
+    </div>
+
+    <div class="topnav-right">
+      <a id="topnav-signout" href="/user/signout"><span class="fa fa-sign-out" style="margin-top: 15px"></span></a>
+    </div>
+
+      
+
+    <!-- <div class="topnav-right">
+      <a href="/user/signout">Sign Out</a>
+    </div> -->
+
+  </div>
+{% endblock %}
+
 {% block content %}
+
   <div class="card-wrapper">
 
     <div class="card">
@@ -8,13 +32,8 @@
       <h1 class="center">Dashboard</h1>
       <hr class="sep" />
       <p class="center">You are currently logged in.</p>
-      <p class="center" id="date">SSSS</p>
      
-        <form method="GET" action="/user/signout">
-          <div class="vertical-center">
-          <input type="submit" value="Sign Out" class="btn">
-          </div>
-        </form>
+        
       
     </div>
 
@@ -34,10 +53,30 @@
   </div>
 
   <script>
-    n =  new Date();
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    clock();
+    
+    function clock() {
+      n =  new Date();
+      y = n.getFullYear();
+      m = n.getMonth() + 1;
+      d = n.getDate();
+      h = n.getHours();
+      min = n.getMinutes();
+      s = n.getSeconds();
+
+      // Check if below 10
+      min = checkTime(min);
+      s = checkTime(s);
+
+      document.getElementById("date").innerHTML = d + "/" + m + "/" + y + " " + h + ":" + min + ":" + s;
+      setTimeout(clock, 1000);
+    }
+
+    function checkTime(i) {
+      if (i < 10 ) {
+        i = "0" + i
+      };
+      return i;
+    }
   </script>
 {% endblock %}
