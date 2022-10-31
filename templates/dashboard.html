@@ -6,17 +6,22 @@
     <div class="card">
 
       <h1 class="center">Dashboard</h1>
+      <hr class="sep" />
       <p class="center">You are currently logged in.</p>
-
-      <div class="center">
-        <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
-      </div>
-    
+      <p class="center" id="date">SSSS</p>
+     
+        <form method="GET" action="/user/signout">
+          <div class="vertical-center">
+          <input type="submit" value="Sign Out" class="btn">
+          </div>
+        </form>
+      
     </div>
 
     <div class="card">
 
       <h2 class="center">Your Info</h2>
+      <hr class="sep" />
 
       <p>
         <strong>ID:</strong> {{ session['user']['_id'] }}<br>
@@ -27,4 +32,12 @@
     </div>
   
   </div>
+
+  <script>
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+  </script>
 {% endblock %}

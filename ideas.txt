@@ -1,0 +1,1 @@
+for nav bar: have date and time (time will be clock and changes per minute/second)
