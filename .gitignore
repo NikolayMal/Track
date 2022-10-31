@@ -25,5 +25,6 @@ htmlcov/
 *,cover
 
 
-# DB
+# Files
 mongopass.py
+ideas.txt
