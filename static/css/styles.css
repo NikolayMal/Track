@@ -83,6 +83,15 @@ p {
   background: var(--almost-black);
 }
 
+.full-card {
+  margin: 0 30px 60px;
+  padding: 20px 40px;
+  width: 80%;
+  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  background: var(--almost-black);
+}
+
 @media only screen and (max-width: 520px) {
   .card-wrapper {
     padding: 30px 0 0;
@@ -118,6 +127,15 @@ form hr.sep, .sep {
   border: none;
   height: 2px;
   width: 25%;
+  margin: 0px auto 45px auto;
+}
+
+.sep-left {
+  background: var(--primary);
+  box-shadow: none;
+  border: none;
+  height: 2px;
+  width: 100%;
   margin: 0px auto 45px auto;
 }
 
@@ -188,7 +206,7 @@ label {
   left: 0%;
 }
 
-.btn, a {
+.home-btn, a {
   width: 180px;
   height: 60px;
   cursor: pointer;

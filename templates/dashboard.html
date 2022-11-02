@@ -14,12 +14,6 @@
       <a id="topnav-signout" href="/user/signout"><span class="fa fa-sign-out" style="margin-top: 15px"></span></a>
     </div>
 
-      
-
-    <!-- <div class="topnav-right">
-      <a href="/user/signout">Sign Out</a>
-    </div> -->
-
   </div>
 {% endblock %}
 
@@ -52,6 +46,109 @@
   
   </div>
 
+  <!-- <div class="card-wrapper">
+    <div class="full-card">
+      <div class="wrapper">
+        <form name="spending_form">
+          <h2 class="center">Spending</h2>
+          <hr class="sep" />
+          
+          <div class="group">
+            <input type="text" name="item" required /><span class="highlight"></span><span class="bar"></span>
+            <label for="item">Item</label>
+          </div>
+
+          <div class="group">
+            <input type="text" name="price" required /><span class="highlight"></span><span class="bar"></span>
+            <label for="price">Price</label>
+          </div>
+
+          <!-- Implement drop down
+          <div class="group">
+            <select name="Type">
+              <option value="Alcohol">Alcohol</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Car">Car</option>
+              <option value="House">House</option>
+              <option value="Rent">Rent</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <p class="error error--hidden"></p>
+          <div class="vertical-center">
+            <input type="submit" value="Submit Item" class="btn" />
+          </div>
+          
+
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card-wrapper">
+    <div class="full-card">
+      <div class="wrapper">
+        
+        
+        <div class="table-responsive">
+            <div class="table-wrapper">
+              <div class="table-title">
+                <div class="table-row">
+                  
+                    <h2>Spending</h2>
+                  
+                
+                  <div class="table-btn-right">
+                    <a href="#newentry"  class="table-btn"><span class="green-span">New Entry</span></a>
+						        <a href="#deleteentry" class="table-btn" ><span class="red-span">Delete Entry</span></a>	
+                  </div>
+
+                </div>
+              </div>
+              <hr class="sep-left" />
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th stlye="width: 70%">
+                    <span class="custom-checkbox">
+                      <input type="checkbox" id="selectAll">
+                      <label for="selectAll"></label>
+                    </span>
+                  </th>
+                  <th>Item</th>
+                  <th>Type</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="custom-checkbox">
+                      <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                      <label for="checkbox1"></label>
+                    </span>
+                  </td>
+                  <td>Guineass</td>
+                  <td>Alcohol</td>
+                  <td>5.4</td>
+                  <td>
+                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+
   <script>
     clock();
     
@@ -78,5 +175,29 @@
       };
       return i;
     }
+
+  $(document).ready(function(){
+    // Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function(){
+      if(this.checked){
+        checkbox.each(function(){
+          this.checked = true;                        
+        });
+      } else{
+        checkbox.each(function(){
+          this.checked = false;                        
+        });
+      } 
+    });
+    checkbox.click(function(){
+      if(!this.checked){
+        $("#selectAll").prop("checked", false);
+      }
+    });
+  });
   </script>
 {% endblock %}
