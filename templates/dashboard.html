@@ -46,26 +46,23 @@
   
   </div>
 
-  <!-- <div class="card-wrapper">
-    <div class="full-card">
+  
+  <div class="card-wrapper">
+    <div class="card">
       <div class="wrapper">
-        <form name="spending_form">
-          <h2 class="center">Spending</h2>
+
+        <form name="insert_form">
+          <h2 class="center">Insert Data </h2>
           <hr class="sep" />
-          
+  
           <div class="group">
             <input type="text" name="item" required /><span class="highlight"></span><span class="bar"></span>
             <label for="item">Item</label>
           </div>
 
           <div class="group">
-            <input type="text" name="price" required /><span class="highlight"></span><span class="bar"></span>
-            <label for="price">Price</label>
-          </div>
-
-          <!-- Implement drop down
-          <div class="group">
-            <select name="Type">
+            <select name="type" class="insert-select" required>
+              <option value="" selected disabled hidden>Choose here</option>
               <option value="Alcohol">Alcohol</option>
               <option value="Groceries">Groceries</option>
               <option value="Car">Car</option>
@@ -73,18 +70,25 @@
               <option value="Rent">Rent</option>
               <option value="Other">Other</option>
             </select>
+            
           </div>
 
+          <div class="group">
+            <input type="number" step="any" min="0" value="0" name="price" required /><span class="highlight"></span><span class="bar"></span>
+            <label for="price">Price</label>
+          </div>
+  
+  
           <p class="error error--hidden"></p>
           <div class="vertical-center">
-            <input type="submit" value="Submit Item" class="btn" />
+            <input type="submit" value="Insert" class="home-btn" />
           </div>
-          
-
+        
         </form>
+
       </div>
-    </div>
-  </div> -->
+    </div> 
+  </div>
 
   <div class="card-wrapper">
     <div class="full-card">
@@ -96,7 +100,7 @@
               <div class="table-title">
                 <div class="table-row">
                   
-                    <h2>Spending</h2>
+                    <h2>Spending Data</h2>
                   
                   <div class="table-btn-right">
                     <a href="#newentry"  class="table-btn"><span class="green-span" data-toggle="tooltip" title="new">New Entry</span></a>
@@ -108,7 +112,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th style="width:65%">Item</th>
+                  <th style="width:65%">Purchased Items</th>
                   <th style="width:20%">Type</th>
                   <th style="width:10%">Price</th>
                   <th style="width:5%">D</th>
