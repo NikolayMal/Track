@@ -106,7 +106,7 @@ p {
   }
 }
 
-form {
+.home-form form {
   width: 320px;
   margin: 45px auto;
 }
@@ -144,7 +144,16 @@ form hr.sep, .sep {
   margin: 45px 0;
 }
 
-input {
+/* .group-row {
+  display: flex;
+  float: left;
+} */
+
+.insert-data-form {
+  width: 100%;
+}
+
+.group input {
   background: none;
   color: var(--grey-dark);
   font-size: 18px;
@@ -156,25 +165,25 @@ input {
   border-bottom: 1px solid var(--almost-white);
 }
 
-input:focus {
+.group input:focus {
   outline: none;
 }
 
-input:focus ~ label, input:valid ~ label {
+.group input:focus ~ label, .group input:valid ~ label {
   top: -14px;
   font-size: 12px;
   color: var(--primary);
 }
 
-input:focus ~ .bar:before {
+.group input:focus ~ .bar:before {
   width: 320px;
 }
 
-input[type=password] {
+.group input[type=password] {
   letter-spacing: 0.3em;
 }
 
-input:valid {
+.group input:valid {
   color: var(--white)
 }
 
@@ -214,6 +223,7 @@ label {
   border: 1px solid var(--primary);
   outline: none;
   transition: 1s ease-in-out;
+  color: var(--white)
 }
 
 .home-btn:hover {
@@ -301,3 +311,50 @@ select:hover {
     linear-gradient(-225deg, transparent 50%, var(--primary) 50%),
     linear-gradient(var(--primary) 42%, var(--green) 42%);
 }
+
+select:focus {
+  outline: none;
+}
+
+
+.insert-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-color: var(--almost-black);
+  color: var(--primary);
+}
+
+.insert-form-container input {
+  text-decoration: none;
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.insert-form-container-center {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.insert-form-container-right { 
+  float: right;
+  padding-right: 15px;
+}
+
+.insert-form-container input:focus {
+  outline: none;
+}
+
+#insert-button {
+  bottom: 0%;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.insert-form-container-center input[type=text]{
+  width: 120px;
+} 

@@ -48,44 +48,36 @@
 
   
   <div class="card-wrapper">
-    <div class="card">
+    <div class="full-card">
       <div class="wrapper">
 
-        <form name="insert_form">
-          <h2 class="center">Insert Data </h2>
-          <hr class="sep" />
-  
-          <div class="group">
-            <input type="text" name="item" required /><span class="highlight"></span><span class="bar"></span>
-            <label for="item">Item</label>
-          </div>
-
-          <div class="group">
-            <select name="type" class="insert-select" required>
-              <option value="" selected disabled hidden>Choose here</option>
-              <option value="Alcohol">Alcohol</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Car">Car</option>
-              <option value="House">House</option>
-              <option value="Rent">Rent</option>
-              <option value="Other">Other</option>
-            </select>
+        <h2 class="center">Insert Data </h2>
+        <hr class="sep" />
+        <form name="insert_form" class="insert-data-form">
+          <div class="insert-form-container">
+          
+            <input type="text" name="item" required />
             
-          </div>
-
-          <div class="group">
-            <input type="number" step="any" min="0" value="0" name="price" required /><span class="highlight"></span><span class="bar"></span>
-            <label for="price">Price</label>
-          </div>
-  
-  
-          <p class="error error--hidden"></p>
-          <div class="vertical-center">
-            <input type="submit" value="Insert" class="home-btn" />
-          </div>
         
-        </form>
+              <select name="type" class="insert-select" required>
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="Alcohol">Alcohol</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Car">Car</option>
+                <option value="House">House</option>
+                <option value="Rent">Rent</option>
+                <option value="Other">Other</option>
+              </select>
+              
+              <input type="number" step="any" min="0" value="0" name="price" required /><span class="highlight"></span><span class="bar"></span>
 
+            <p class="error error--hidden"></p>
+            <div class="insert-form-container-right">
+              <input type="submit" value="Insert" class="home-btn" id="insert-button" />
+            </div>
+        
+          </div>
+        </form>
       </div>
     </div> 
   </div>
@@ -99,13 +91,7 @@
             <div class="table-wrapper">
               <div class="table-title">
                 <div class="table-row">
-                  
                     <h2>Spending Data</h2>
-                  
-                  <div class="table-btn-right">
-                    <a href="#newentry"  class="table-btn"><span class="green-span" data-toggle="tooltip" title="new">New Entry</span></a>
-                  </div>
-
                 </div>
               </div>
               <hr class="sep-left" />
