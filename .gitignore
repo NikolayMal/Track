@@ -28,3 +28,4 @@ htmlcov/
 # Files
 mongopass.py
 ideas.txt
+flask_session/

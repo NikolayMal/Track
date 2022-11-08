@@ -206,7 +206,7 @@ label {
   left: 0%;
 }
 
-.home-btn, a {
+.home-btn {
   width: 180px;
   height: 60px;
   cursor: pointer;
@@ -216,7 +216,7 @@ label {
   transition: 1s ease-in-out;
 }
 
-.btn:hover {
+.home-btn:hover {
   transition: 1s ease-in-out;
   background: var(--primary);
 }
@@ -279,7 +279,6 @@ label {
   border: 0;
 }
 
-.topnav a:hover {
-  background-color: var(--primary);
-  color: var(--almost-white);
+#topnav-signout:hover {
+  color: var(--red);
 }
