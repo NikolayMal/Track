@@ -44,7 +44,6 @@ $("form[name=login_form").submit(function (e) {
 
 $("form[name=insert_form").submit(function (e) {
   var $form = $(this);
-  var $success = $form.find(".success");
   var $error = $form.find(".error");
   var data = $form.serialize();
 
@@ -58,6 +57,31 @@ $("form[name=insert_form").submit(function (e) {
     },
     error: function (resp) {
       $error.text(resp.responseJSON.error).removeClass("error--hidden");
+    }
+  })
+  e.preventDefault();
+})
+
+$("form[name=reloadspendingtable_form").submit(function (e) {
+  var $form = $(this);
+  var $error = $form.find(".error");
+  var data = $form.serialize();
+
+  $.ajax({
+    url: "/user/reloadspendingtable",
+    type: "POST",
+    data: data,
+    dataType: "json",
+    success: function (resp) {
+      i = 0
+      var insertdata = "";
+      for( i; i < resp.success.length-1; i = i+1) {       
+        insertdata = insertdata + "<tr><td>" + resp.success[i][0] + '</td><td>' + resp.success[i][1] + '</td>' + '</td><td>' + resp.success[i][2] + '</td></tr>'; // + '</td><td>' + resp.sucess[i][1] + '</td><td>' + resp.success[i][2] + '</td></tr>';
+      }
+      $("#result").html(insertdata);
+    },
+    error: function (resp) {
+
     }
   })
   e.preventDefault();

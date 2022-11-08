@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, session, redirect, flash
+from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
 from app import db
 import uuid
@@ -67,3 +67,21 @@ class User:
       return jsonify({ "success": "Insert Success" }), 200
 
     return jsonify({ "error": "Insert Failed" }), 402
+
+  def reloadspendingtable(self):
+    dbdata = ()
+    datat = ()
+
+    if 'user' in session:
+      user = session['user']
+    
+    if db.items.find_one( { "user" : user['_id']}):
+      for dbdoc in db.items.find( { "user" : user['_id']}):
+        dbdata = (dbdoc['item'], dbdoc['type'], dbdoc['price'])
+        datat = datat + (dbdata, )
+    else:
+      return jsonify({ "error" : "Reload Error"}), 403
+
+    return jsonify({ "success": datat }), 201
+
+    

@@ -331,14 +331,6 @@ select:focus {
   padding-left: 10px;
 }
 
-.insert-form-container-center {
-  float: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .insert-form-container-right { 
   float: right;
   padding-right: 15px;

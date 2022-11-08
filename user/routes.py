@@ -17,3 +17,7 @@ def login():
 @app.route('/user/insert', methods=['POST'])
 def insert():
   return User().insert()
+
+@app.route('/user/reloadspendingtable', methods=['POST'])
+def reloadspendingtable():
+  return User().reloadspendingtable()

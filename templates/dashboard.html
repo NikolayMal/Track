@@ -48,14 +48,13 @@
 
   
   <div class="card-wrapper">
-    <div class="full-card">
+    <div class="full-card" style="padding-bottom: 50px;">
       <div class="wrapper">
 
         <h2 class="center">Insert Data </h2>
         <hr class="sep" />
         <form name="insert_form" class="insert-data-form">
           <div class="insert-form-container">
-          
             <input type="text" name="item" required />
             
         
@@ -69,7 +68,7 @@
                 <option value="Other">Other</option>
               </select>
               
-              <input type="number" step="any" min="0" value="0" name="price" required /><span class="highlight"></span><span class="bar"></span>
+              <input type="number" step="any" min="0" value="0" name="price" required />
 
             <p class="error error--hidden"></p>
             <div class="insert-form-container-right">
@@ -85,13 +84,19 @@
   <div class="card-wrapper">
     <div class="full-card">
       <div class="wrapper">
-        
-        
         <div class="table-responsive">
             <div class="table-wrapper">
               <div class="table-title">
                 <div class="table-row">
                     <h2>Spending Data</h2>
+                    <div class="table-btn-right">
+                      <form name="reloadspendingtable_form" method="POST">
+                        <div class="insert-form-container-right">
+                          <p class="error error--hidden"></p>
+                          <input type="submit" value="Reload Table" class="home-btn" />
+                        </div>
+                      </form>
+                    </div>
                 </div>
               </div>
               <hr class="sep-left" />
@@ -99,20 +104,24 @@
               <thead>
                 <tr>
                   <th style="width:65%">Purchased Items</th>
-                  <th style="width:20%">Type</th>
+                  <th style="width:25%">Type</th>
                   <th style="width:10%">Price</th>
-                  <th style="width:5%">D</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="result">
                 <tr>
-                  <td>Guineass</td>
-                  <td>Alcohol</td>
-                  <td>5.4</td>
-                  <td class="table-td-right">                    
-                    <a href="#deleteentry" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                  </td>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>99.99</td>
                 </tr>
+                <tr>
+                  {% for row in datat %}
+                    {% for cell in row %}
+                      <td>{{ cell }}</td>
+                    {% endfor %}
+                  {% endfor %}
+                </tr>
+                <p class="error error--hidden"></p>
               </tbody>
             </table>
         </div>
