@@ -36,12 +36,11 @@
 
 .table-title h2 {
 	display: inline-block;
-	text-align: center;
 	padding-left: 15px;
 	text-decoration: none;
 	font-size: 25px;
+	padding-top: 30px;
 }
-
 
 .table-title .table-btn {
 	color: var(--almost-white);
@@ -69,20 +68,8 @@
 
 .table-btn-right {
 	float: right;
-}
-
-.green-span {
-    background-color: var(--green);
-    padding: 5px;
-}
-
-.green-span:hover {
-	background-color: var(--almost-white);
-}
-
-.red-span {
-    background-color: var(--red);
-    padding: 5px;
+	justify-content: center;
+	align-items: center;
 }
 
 .table-btn, a {
@@ -93,7 +80,7 @@
     outline: none;
     transition: 1s ease-in-out;
 }
-  
+
 .table-btn:hover {
     transition: 1s ease-in-out;
     background: var(--primary);
@@ -105,22 +92,29 @@ table.table {
 }
 
 table.table tr th, table.table tr td {
-	border-color: #bb1e1e;
 	padding: 12px 15px;
 	vertical-align: middle;
+}
 
+table.table tr {
+	color: var(--almost-black);
+}
+
+table.table th {
+	color: var(--almost-white);
 }
 
 table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: var(--grey);
-}
-
-table.table-striped tbody tr:nth-of-type(even) {
 	background-color: var(--grey-light);
 }
 
+table.table-striped tbody tr:nth-of-type(even) {
+	background-color: var(--grey);
+}
+
 table.table-striped.table-hover tbody tr:hover {
-	background: var(--grey-dark);
+	background: var(--primary);
+	color: var(--almost-white);
 }
 
 table.table th i {

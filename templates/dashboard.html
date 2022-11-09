@@ -55,9 +55,8 @@
         <hr class="sep" />
         <form name="insert_form" class="insert-data-form">
           <div class="insert-form-container">
-            <input type="text" name="item" required />
+            <input type="text" name="item" placeholder="Item.." required />
             
-        
               <select name="type" class="insert-select" required>
                 <option value="" selected disabled hidden>Choose here</option>
                 <option value="Alcohol">Alcohol</option>
@@ -68,12 +67,10 @@
                 <option value="Other">Other</option>
               </select>
               
-              <input type="number" step="any" min="0" value="0" name="price" required />
+              <input type="number" step="any" min="0" placeholder="Price.." name="price" required />
 
             <p class="error error--hidden"></p>
-            <div class="insert-form-container-right">
-              <input type="submit" value="Insert" class="home-btn" id="insert-button" />
-            </div>
+            <input type="submit" value="Insert" class="home-btn" />
         
           </div>
         </form>

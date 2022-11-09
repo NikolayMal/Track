@@ -76,12 +76,12 @@ $("form[name=reloadspendingtable_form").submit(function (e) {
       i = 0
       var insertdata = "";
       for( i; i < resp.success.length-1; i = i+1) {       
-        insertdata = insertdata + "<tr><td>" + resp.success[i][0] + '</td><td>' + resp.success[i][1] + '</td>' + '</td><td>' + resp.success[i][2] + '</td></tr>'; // + '</td><td>' + resp.sucess[i][1] + '</td><td>' + resp.success[i][2] + '</td></tr>';
+        insertdata = insertdata + "<tr><td>" + resp.success[i][0] + '</td><td>' + resp.success[i][1] + '</td>' + '</td><td>' + resp.success[i][2] + '</td></tr>';
       }
       $("#result").html(insertdata);
     },
     error: function (resp) {
-
+      $error.text(resp.responseJSON.error).removeClass("error--hidden");
     }
   })
   e.preventDefault();
