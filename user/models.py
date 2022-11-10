@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, session, redirect
 from passlib.hash import pbkdf2_sha256
 from app import db
 import uuid
+from datetime import datetime
 
 class User:
 
@@ -61,6 +62,7 @@ class User:
       "item": request.form.get('item'),
       "type": request.form.get('type'),
       "price": request.form.get('price'),
+      "datetime": str(datetime.utcnow())
     }
     
     if db.items.insert_one(item):
@@ -82,6 +84,8 @@ class User:
     else:
       return jsonify({ "error" : "Reload Error"}), 403
 
+    # Sort by date
+    # datat = sorted(datat, key=lambda t: t[3])
     return jsonify({ "success": datat }), 201
 
     
