@@ -79,13 +79,16 @@ class User:
     
     if db.items.find_one( { "user" : user['_id']}):
       for dbdoc in db.items.find( { "user" : user['_id']}):
-        dbdata = (dbdoc['item'], dbdoc['type'], dbdoc['price'])
+        date_posted = dbdoc['datetime']
+        dbdata = (dbdoc['item'], dbdoc['type'], dbdoc['price'], date_posted[:10])
         datat = datat + (dbdata, )
     else:
       return jsonify({ "error" : "Reload Error"}), 403
 
     # Sort by date
-    # datat = sorted(datat, key=lambda t: t[3])
+    print(datat)
+    datat = sorted(datat, key=lambda t: t[3], reverse=True)
+    print(datat)
     return jsonify({ "success": datat }), 201
 
     
