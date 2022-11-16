@@ -50,6 +50,16 @@ def home():
 def dashboard():
   return render_template('dashboard.html')
 
+@app.route('/datatable/')
+@login_required
+def datatable():
+  return render_template('datatable.html')
+
+@app.route('/graphs/')
+@login_required
+def graphs():
+  return render_template('graphs.html')
+
 
 if __name__ == "__main__":
   app.run(port=5000, debug=True)

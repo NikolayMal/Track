@@ -293,6 +293,23 @@ label {
   color: var(--red);
 }
 
+.botnav {
+  width: 10%;
+  background-color: var(--almost-white);
+  color: var(--primary);
+  float: none;
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 1;
+  border-radius: 25px;
+}
+
+.botnav a {
+  border: 1px #ffffff solid;
+}
+
 .insert-select {
   position: relative;
   color: var(--almost-black);

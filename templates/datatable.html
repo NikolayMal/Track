@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card-wrapper">
+    <div class="full-card">
+      <div class="wrapper">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+              <div class="table-title">
+                <div class="table-row">
+                    <h2>Recent Spending Data</h2>
+                    <div class="table-btn-right">
+                      <form name="reloadspendingtable_form" method="POST">
+                        <div class="insert-form-container-right">
+                          <p class="error error--hidden"></p>
+                          <input type="submit" value="Reload Table" class="home-btn" />
+                        </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+              <hr class="sep-left" />
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th style="width:55%">Purchased Items</th>
+                  <th style="width:25%">Type</th>
+                  <th style="width:10%">Price</th>
+                  <th style="width:10%">Date</th>
+                </tr>
+              </thead>
+              <tbody id="result">
+                <tr>
+                  <td>Example</td>
+                  <td>Example</td>
+                  <td>99.99</td>
+                  <td>2020-01-10</td>
+                </tr>
+                <tr>
+                  {% for row in datat %}
+                    {% for cell in row %}
+                      <td>{{ cell }}</td>
+                    {% endfor %}
+                  {% endfor %}
+                </tr>
+                <p class="error error--hidden"></p>
+              </tbody>
+            </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

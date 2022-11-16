@@ -30,6 +30,15 @@
     </div>
   </div>
 
+    
+  <div class="botnav">
+    <div class="center">
+      <a href="/dashboard/"><i class="fa fa-fw fa-home      fa-2x"></i></a>
+      <a href="/datatable/"><i class="fa fa-fw fa-table     fa-2x"></i></a>
+      <a href="/graphs/"><i class="fa fa-fw fa-bar-chart fa-2x"></i></a>
+    </div>
+  </div>
+
   <div id="snowflakeContainer">
     <span class="snowflake"></span>
   </div>
@@ -37,9 +46,40 @@
   {% block content %}
     {# Template inserted here #}
   {% endblock %}
+
+
   
   <script src="/static/js/jquery.js"></script>
   <script src="/static/js/scripts.js"></script>
   <script src="/static/js/snowfall.js"></script>
 </body>
+
+  <script>
+    clock();
+    
+    function clock() {
+      n =  new Date();
+      y = n.getFullYear();
+      m = n.getMonth() + 1;
+      d = n.getDate();
+      h = n.getHours();
+      min = n.getMinutes();
+      s = n.getSeconds();
+
+      // Check if below 10
+      min = checkTime(min);
+      s = checkTime(s);
+
+      document.getElementById("date").innerHTML = d + "/" + m + "/" + y + " " + h + ":" + min + ":" + s;
+      setTimeout(clock, 1000);
+    }
+
+    function checkTime(i) {
+      if (i < 10 ) {
+        i = "0" + i
+      };
+      return i;
+    }
+  </script>
+
 </html>

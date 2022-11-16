@@ -74,9 +74,9 @@ $("form[name=reloadspendingtable_form").submit(function (e) {
     dataType: "json",
     success: function (resp) {
       i = 0
-      maxLoop = Math.min(10, resp.success.length)
+      // maxLoop = Math.min(10, resp.success.length)
       var insertdata = "";
-      for( i; i < maxLoop; i = i+1) {       
+      for( i; i < resp.success.length; i = i+1) {       
         insertdata = insertdata + "<tr><td>" + resp.success[i][0] + '</td><td>' + resp.success[i][1] + '</td><td>' + resp.success[i][2] + '</td><td>' + resp.success[i][3] + '</td></tr>';
       }
       $("#result").html(insertdata);
