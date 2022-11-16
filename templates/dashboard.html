@@ -1,41 +1,17 @@
 {% extends "base.html" %}
 
-{% block nav %}
-  <div class="topnav">
-   
-    <h3>Hello, {{ session['user']['name'] }}!</h3>
-
-    <div class="topnav-center">
-      <p id="date">SSSS</p> 
-      
-    </div>
-
-    <div class="topnav-right">
-      <a id="topnav-signout" href="/user/signout"><span class="fa fa-sign-out" style="margin-top: 15px"></span></a>
-    </div>
-
-  </div>
-{% endblock %}
-
 {% block content %}
 
   <div class="card-wrapper">
-
     <div class="card">
-
       <h1 class="center">Dashboard</h1>
       <hr class="sep" />
       <p class="center">You are currently logged in.</p>
-     
-        
-      
     </div>
 
     <div class="card">
-
       <h2 class="center">Your Info</h2>
       <hr class="sep" />
-
       <p>
         <strong>ID:</strong> {{ session['user']['_id'] }}<br>
         <strong>Name:</strong> {{ session['user']['name'] }}<br>
@@ -133,7 +109,6 @@
   
 
   <script>
-    $('[data-toggle="tooltip"]').tooltip();
     clock();
     
     function clock() {

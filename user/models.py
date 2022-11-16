@@ -77,6 +77,7 @@ class User:
     if 'user' in session:
       user = session['user']
     
+    # get items from db
     if db.items.find_one( { "user" : user['_id']}):
       for dbdoc in db.items.find( { "user" : user['_id']}):
         date_posted = dbdoc['datetime']
@@ -85,10 +86,8 @@ class User:
     else:
       return jsonify({ "error" : "Reload Error"}), 403
 
-    # Sort by date
-    print(datat)
+    # Sort by date (newest - oldest)
     datat = sorted(datat, key=lambda t: t[3], reverse=True)
-    print(datat)
     return jsonify({ "success": datat }), 201
 
     

@@ -22,10 +22,13 @@
 
 </head>
 <body>
-
-  {% block nav %}
-    {# Template inserted here #}
-  {% endblock %}
+    <div class="topnav">
+      <h3>Hello, {{ session['user']['name'] }}!</h3>
+    <div class="topnav-center"><p id="date">00/00/0000 00:00:00</p>  </div>
+    <div class="topnav-right">
+      <a id="topnav-signout" href="/user/signout"><span class="fa fa-sign-out" style="margin-top: 15px"></span></a>
+    </div>
+  </div>
 
   <div id="snowflakeContainer">
     <span class="snowflake"></span>
